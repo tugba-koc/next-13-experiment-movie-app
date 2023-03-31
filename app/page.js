@@ -1,9 +1,24 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from './page.module.css';
+import Movie from './Movie';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export default function Home() {
-  return <main className={styles.main}>Hello</main>;
+export default async function Home() {
+  const data = await fetch(
+    `${process.env.BASE_URL}/popular?api_key=${process.env.API_KEY}`
+  );
+  const res = await data.json();
+  return (
+    <main>
+      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
+      <div className='grid gap-9 grid-cols-fluid'>
+        {res?.results.map((movie) => (
+          <Movie
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+            release_date={movie.release_date}
+          />
+        ))}
+      </div>
+    </main>
+  );
 }

@@ -9,7 +9,14 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ['var(--font-montserrat)'],
+      },
+      gridTemplateColumns: {
+        fluid: 'repeat(auto-fit, minmax(15rem, 1fr))',
+      },
+    },
   },
   plugins: [],
 };
