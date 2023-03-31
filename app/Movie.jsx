@@ -10,7 +10,7 @@ const Movie = (props) => {
     <div>
       <h1>{title}</h1>
       <h2>Release date: {release_date}</h2>
-      <Link href={`/test`}>
+      <Link href={`/${id}`}>
         <Image
           width={300}
           height={400}

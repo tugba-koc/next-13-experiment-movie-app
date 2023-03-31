@@ -7,7 +7,6 @@ export default async function Home() {
   const res = await data.json();
   return (
     <main>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
       <div className='grid gap-9 grid-cols-fluid'>
         {res?.results.map((movie) => (
           <Movie
